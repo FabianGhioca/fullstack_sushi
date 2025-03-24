@@ -1,0 +1,29 @@
+{% extends 'rolls/common.html' %}
+
+{% block content %}
+    <div class="container my-5 text-center" style="max-width:580px">
+        <h1>Sushi per Programmatori!</h1>
+        <p class="lead">Concediti ora una favolosa pausa ricca di sapore e di carboidrati. E'
+            scientificamente provato: i nostri sushi rolls ti aiutano a scrivere un codice più performante
+        </p>
+        <button type="button" class="btn btn-primary">Ordina Subito!</button>
+        <a href="{% url 'contattaci' %}" type="button" class="btn btn-secondary">Contattaci</a>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for roll in rolls %}
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <img src=" {{ roll.immagine.url }} " class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ roll.nome }} </h5>
+                        <p class="card-text"> $ {{ roll.prezzo }} </p>
+                        <a href="#" class="btn btn-primary">Acquista</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
